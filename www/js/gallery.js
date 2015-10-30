@@ -88,7 +88,7 @@ $(function() {
 				// we are using the elastislide plugin:
 				// http://tympanus.net/codrops/2011/09/12/elastislide-responsive-carousel/
 				$esCarousel.show().elastislide({
-					imageW 	: 130,
+					imageW 	: 65,
 					onClick	: function( $item ) {
 						if( anim ) return false;
 						anim	= true;

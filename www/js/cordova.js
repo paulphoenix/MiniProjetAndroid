@@ -361,13 +361,20 @@ define("cordova/android/promptbasednativeapi", function(require, exports, module
 
 module.exports = {
     exec: function(bridgeSecret, service, action, callbackId, argsJson) {
-        return prompt(argsJson, 'gap:'+JSON.stringify([bridgeSecret, service, action, callbackId]));
+        //var r = prompt(argsJson, 'gap:'+JSON.stringify([bridgeSecret, service, action, callbackId]));
+        var r = null;
+        console.log("A: "+r)
+        return r;
     },
     setNativeToJsBridgeMode: function(bridgeSecret, value) {
-        prompt(value, 'gap_bridge_mode:' + bridgeSecret);
+        
+        var r= prompt(value, 'gap_bridge_mode:' + bridgeSecret);
+        console.log("B: "+r)
     },
     retrieveJsMessages: function(bridgeSecret, fromOnlineEvent) {
-        return prompt(+fromOnlineEvent, 'gap_poll:' + bridgeSecret);
+        var r = prompt(+fromOnlineEvent, 'gap_poll:' + bridgeSecret);
+        console.log("C: "+r)
+        return r;
     }
 };
 
@@ -950,7 +957,9 @@ function androidExec(success, fail, service, action, args) {
 }
 
 androidExec.init = function() {
-    bridgeSecret = +prompt('', 'gap_init:' + nativeToJsBridgeMode);
+    //bridgeSecret = +prompt('', 'gap_init:' + nativeToJsBridgeMode);
+    bridgeSecret = 0;
+    console.log("D : "+bridgeSecret);
     channel.onNativeReady.fire();
 };
 

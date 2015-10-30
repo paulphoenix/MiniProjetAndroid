@@ -436,6 +436,7 @@
 	};
 	
 	$.fn.elastislide 				= function( options ) {
+				console.log($.data( this, 'elastislide' ),options)
 		if ( typeof options === 'string' ) {
 			var args = Array.prototype.slice.call( arguments, 1 );
 
